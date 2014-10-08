@@ -17,7 +17,7 @@
 	var mediaElement = document.getElementById('music_video');
 	var lyricsSec = document.getElementById('lyrics');
 	var lyrics = ["Oh, I could hide 'neath the wings<br/>\
-Of the bluebird as she sings.<br/>\
+Of the <span id=\"bluebird\">bluebird</span> as she sings.<br/>\
 The six o'clock alarm would never ring.<br/>\
 But it rings and I rise,<br/>\
 Wipe the sleep out of my eyes.<br/>\
@@ -45,11 +45,12 @@ And a homecoming queen.",
 Oh, what can it mean.<br/>\
 To a daydream believer<br/>\
 And a homecoming queen.<br/>\
-[Repeat and fade]"];
-	mediaElement.addEventListener("timeupdate", function (){
+<a href=\"http://www.reddit.com\">[Repeat and fade]</a>"];
+	function showLyrics () {
 		var time = mediaElement.currentTime;
 		if (time < 4)
 			lyricsSec.innerHTML = "<img src=\"monkees.jpg\" alt=\"img\" height=250 width=250 />";
+		/* wait... that's not the monkees! YOU LIE! */
 		else if (time < 36)
 			lyricsSec.innerHTML = "<p>" + lyrics[0] + "</p>";
 		else if (time < 53)
@@ -61,15 +62,9 @@ And a homecoming queen.<br/>\
 		else if (time < 125)
 			lyricsSec.innerHTML = "<p>" + lyrics[4] + "</p>";
 		else lyricsSec.innerHTML = "<p>" + lyrics[5] + "</p>";
-	}, false)
-	lyricsSec.innerHTML = "<p>" + lyrics[0] + "</p>";
-	/* event listener for playing
-		time whatever set lyrics to blah
-		time whatever set lyrics to blah
-	*/
-
-	// var vstart = mediaElement.seekable.start();
-	// var vend = mediaElement.seekable.end();
+	}
+	mediaElement.addEventListener("timeupdate", function(){showLyrics()}, false);
+	mediaElement.addEventListener("playing", function(){showLyrics()}, false);
 </script>
 </body>
 </html>	

@@ -4,15 +4,13 @@ p h1 img video div {
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
+	font-family: serif;
+
 }
 
 body {
-	width: 960px;
-	height: 800px;
 	background-color: #000000;
 	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 p {
@@ -23,4 +21,12 @@ p {
 
 h1 {
 	color: white;
+}
+
+#bluebird {
+	color: #AAAAFF;
+}
+
+a {
+	color: #AAFFAA;
 }
