@@ -1,0 +1,55 @@
+/*
+If the browser screen width is greater than 1280 pixels, 
+	display the entire image homer.jpg (i.e., as seen 
+	above, with all 4 smaller pictures).
+If the browser screen width is greater than 1024 pixels 
+	but less than or equal to 1280 pixels, display the first small 
+	picture of Homer Simpson (i.e., the one in the upper-left).
+If the browser screen width is greater than 768 pixels 
+	but less than or equal to 1024 pixels, display the 
+	second small picture of Homer Simpson (i.e., the one in the upper-right).
+If the browser screen width is greater than 480 pixels but 
+	less than or equal to 768 pixels, display the third small 
+	picture of Homer Simpson (i.e., the one in the bottom-left).
+If the browser screen width is less than or equal to 480 pixels, 
+	display the last small picture of Homer Simpson 
+	(i.e., the one in the bottom-right).
+*/
+
+.homer {
+	height: 300px;
+	width: 300px;
+	background: url(homer.jpg) -300px -300px;
+}
+
+@media only screen
+and (min-width : 481px) {
+.homer {
+	background: url(homer.jpg) 0px -300px;
+}
+}
+
+@media only screen
+and (min-width : 769px) {
+.homer {
+	background: url(homer.jpg) -300px 0px;
+}
+}
+
+@media only screen
+and (min-width : 1025px) {
+.homer {
+	background: url(homer.jpg);
+}
+}
+
+@media only screen
+and (min-width : 1281px) {
+.homer {
+	height: 600px;
+	width: 600px;
+	background: url(homer.jpg);
+}
+}
+
+
