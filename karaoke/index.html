@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Daydream Believer</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<h1 id="title">Daydream Believer</h1>
+
+<video src="http://www.cs.tufts.edu/comp/20/daydream_believer.webm" id="music_video" controls></video>
+<div id="lyrics"></div>
+
+<script>
+	var mediaElement = document.getElementById('music_video');
+	var lyricsSec = document.getElementById('lyrics');
+	var lyrics = ["Oh, I could hide 'neath the wings<br/>\
+Of the bluebird as she sings.<br/>\
+The six o'clock alarm would never ring.<br/>\
+But it rings and I rise,<br/>\
+Wipe the sleep out of my eyes.<br/>\
+My shavin' razor's cold and it stings.",
+"Cheer up, Sleepy Jean.<br/>\
+Oh, what can it mean.<br/>\
+To a daydream believer<br/>\
+And a homecoming queen.",
+"You once thought of me<br/>\
+As a white knight on a steed.<br/>\
+Now you know how happy I can be.<br/>\
+Oh, and our good times start and end<br/>\
+Without dollar one to spend.<br/>\
+But how much, baby, do we really need.",
+"Cheer up, Sleepy Jean.<br/>\
+Oh, what can it mean.<br/>\
+To a daydream believer<br/>\
+And a homecoming queen.<br/>\
+Cheer up, Sleepy Jean.<br/>\
+Oh, what can it mean.<br/>\
+To a daydream believer<br/>\
+And a homecoming queen.",
+"[Instrumental interlude]",
+"Cheer up, Sleepy Jean.<br/>\
+Oh, what can it mean.<br/>\
+To a daydream believer<br/>\
+And a homecoming queen.<br/>\
+[Repeat and fade]"];
+	mediaElement.addEventListener("timeupdate", function (){
+		var time = mediaElement.currentTime;
+		if (time < 4)
+			lyricsSec.innerHTML = "<img src=\"monkees.jpg\" alt=\"img\" height=250 width=250 />";
+		else if (time < 36)
+			lyricsSec.innerHTML = "<p>" + lyrics[0] + "</p>";
+		else if (time < 53)
+			lyricsSec.innerHTML = "<p>" + lyrics[1] + "</p>";
+		else if (time < 82)
+			lyricsSec.innerHTML = "<img src=\"homer.jpg\" alt=\"img\" height=250 width=250 /><p>" + lyrics[2] + "</p>";
+		else if (time < 120)
+			lyricsSec.innerHTML = "<p>" + lyrics[3] + "</p>";
+		else if (time < 125)
+			lyricsSec.innerHTML = "<p>" + lyrics[4] + "</p>";
+		else lyricsSec.innerHTML = "<p>" + lyrics[5] + "</p>";
+	}, false)
+	lyricsSec.innerHTML = "<p>" + lyrics[0] + "</p>";
+	/* event listener for playing
+		time whatever set lyrics to blah
+		time whatever set lyrics to blah
+	*/
+
+	// var vstart = mediaElement.seekable.start();
+	// var vend = mediaElement.seekable.end();
+</script>
+</body>
+</html>	

@@ -1,0 +1,26 @@
+p h1 img video div {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+body {
+	width: 960px;
+	height: 800px;
+	background-color: #000000;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p {
+	width: 100%;
+	color: white;
+	text-align: center;
+}
+
+h1 {
+	color: white;
+}
