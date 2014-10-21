@@ -14,7 +14,7 @@
 			var request = new XMLHttpRequest();
 			var me = new google.maps.LatLng(myLat, myLng);
 			var myOptions = {
-						zoom: 13, // The larger the zoom number, the bigger the zoom
+						zoom: 10, // The larger the zoom number, the bigger the zoom
 						center: me,
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					};
@@ -39,7 +39,7 @@
 					});
 				}
 				else {
-					alert("Geolocation is not supported by your web browser.  What a shame!");
+					alert("Geolocation is not supported by your web browser.");
 				}
 			}
 
@@ -53,7 +53,8 @@
 				// Create a marker
 				marker = new google.maps.Marker({
 					position: me,
-					title: "Here I Am!"
+					title: "Here I Am!",
+					icon: "will.jpg"
 				});
 				marker.setMap(map);
 					
@@ -77,7 +78,6 @@
 			function callback(results, status)
 			{
 				if (status == google.maps.places.PlacesServiceStatus.OK) {
-					alert("Got places back!");
 					places = results;
 					for (var i = 0; i < results.length; i++) {
 						createMarker(results[i]);
