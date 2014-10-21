@@ -66,8 +66,8 @@
 				});
 				
 				// Getting data from the server
-				request = new XMLHttpRequest("post", "http://chickenofthesea.herokuapp.com/sendLocation","false");
-				request.open();
+				request = new XMLHttpRequest();
+				request.open("post", "http://chickenofthesea.herokuapp.com/sendLocation","false");
 				request.onreadystatechange = dataReady;
 				request.send("Rolly", myLat, myLng);
 			}
