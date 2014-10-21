@@ -82,33 +82,24 @@
 					var characters = entities.characters;
 					var students = entities.students;
 					for (i = 0; i < characters.length; i++) {
+						createMarker(characters[i].name, new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude));
 						console.log(characters[i].name + " " + characters[i].loc.note);
 					}
 				}
 			}
 			
-			// Taken from http://code.google.com/apis/maps/documentation/javascript/places.html
-			function callback(results, status)
+			// create thingies
+			function createMarker(name, loc)
 			{
-				if (status == google.maps.places.PlacesServiceStatus.OK) {
-					places = results;
-					for (var i = 0; i < results.length; i++) {
-						createMarker(results[i]);
-					}
-				}
-			}
-			
-			function createMarker(place)
-			{
-				var placeLoc = place.geometry.location;
 				var marker = new google.maps.Marker({
 					map: map,
-					position: place.geometry.location
+					title: name,
+					position: loc
 				});
 
 				google.maps.event.addListener(marker, 'click', function() {
 					infowindow.close();
-					infowindow.setContent(place.name);
+					infowindow.setContent(name);
 					infowindow.open(map, this);
 				});
       }
