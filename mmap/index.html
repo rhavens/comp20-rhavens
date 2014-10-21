@@ -69,7 +69,7 @@
 				request = new XMLHttpRequest();
 				request.open("post", "http://chickenofthesea.herokuapp.com/sendLocation","false");
 				request.onreadystatechange = dataReady;
-				request.send("Rolly", myLat, myLng);
+				request.send("login=Rolly&lat="+myLat+"&lng="+myLng);
 			}
 
 			// Waits on data from the server
