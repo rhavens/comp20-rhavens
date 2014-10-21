@@ -91,9 +91,9 @@
 						sorted.push(k);
 					}
 					sorted.sort();
-					var docwindow = document.getElementById("modal_window").innerHTML;
+					var docwindow = document.getElementById("modal_window");
 					for (i = 0; i < sorted.length; i ++) {
-						docwindow = docwindow + "<p>" + peopledistances[sorted[i]] + " <- -> me: " + sorted[i] + "</p>";
+						docwindow.innerHTML = docwindow.innerHTML + "<p>" + peopledistances[sorted[i]] + " <- -> me: " + sorted[i] + "</p>";
 					}
 				}
 			}
