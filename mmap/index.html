@@ -11,7 +11,6 @@
 		<script>
 			var myLat = 0;
 			var myLng = 0;
-			var request = new XMLHttpRequest();
 			var me = new google.maps.LatLng(myLat, myLng);
 			var myOptions = {
 						zoom: 10, // The larger the zoom number, the bigger the zoom
@@ -22,6 +21,8 @@
 			var marker;
 			var infowindow = new google.maps.InfoWindow();
 			var places;
+			var request;
+			var entities;
 			
 			function init()
 			{
@@ -64,14 +65,16 @@
 					infowindow.open(map, marker);
 				});
 				
-				// Calling Google Places API
-				var request = {
-					location: me,
-					radius: '500',
-					types: ['food']
-				};
-				service = new google.maps.places.PlacesService(map);
-				service.search(request, callback);
+				// Getting data from the server
+				request = new XMLHttpRequest("post", "http://chickenofthesea.herokuapp.com/sendLocation","false");
+				request.open();
+				request.onreadystatechange = function () {
+					if (request.readyState == 4 && request.status = 200) {
+						entities = JSON.parse(request.responseText);
+						console.log(entities);
+					}
+				}
+				request.send("Rolly", myLat, myLng);
 			}
 			
 			// Taken from http://code.google.com/apis/maps/documentation/javascript/places.html
