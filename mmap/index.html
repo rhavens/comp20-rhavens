@@ -79,6 +79,11 @@
 				if (request.readyState == 4 && request.status == 200) {
 					entities = JSON.parse(request.responseText);
 					console.log(entities);
+					var characters = entites.characters;
+					var students = entities.students;
+					for (i = 0; i < characters.length; i++) {
+						console.log(characters[i].name + " " + characters[i].loc.note);
+					}
 				}
 			}
 			
