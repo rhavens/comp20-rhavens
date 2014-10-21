@@ -68,13 +68,17 @@
 				// Getting data from the server
 				request = new XMLHttpRequest("post", "http://chickenofthesea.herokuapp.com/sendLocation","false");
 				request.open();
-				request.onreadystatechange = function () {
-					if (request.readyState == 4 && request.status = 200) {
-						entities = JSON.parse(request.responseText);
-						console.log(entities);
-					}
-				}
+				request.onreadystatechange = dataReady;
 				request.send("Rolly", myLat, myLng);
+			}
+
+			// Waits on data from the server
+			function dataReady ()
+			{
+				if (request.readyState == 4 && request.status = 200) {
+					entities = JSON.parse(request.responseText);
+					console.log(entities);
+				}
 			}
 			
 			// Taken from http://code.google.com/apis/maps/documentation/javascript/places.html
