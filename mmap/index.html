@@ -82,27 +82,45 @@
 					var characters = entities.characters;
 					var students = entities.students;
 					for (i = 0; i < characters.length; i++) {
-						createMarker(characters[i].name, new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude));
+						createSpecialMarker(characters[i].name, characters[i].loc.latitude, characters[i].loc.longitude, characters[i].loc.note);
 						console.log(characters[i].name + " " + characters[i].loc.note);
+					}
+					for (i = 0; i < students.length; i++) {
+						createMarker(students[i].login, students[i].lat, students[i].lng);
 					}
 				}
 			}
 			
 			// create thingies
-			function createMarker(name, loc)
+			function createSpecialMarker(name, lat, lng, note)
 			{
 				var marker = new google.maps.Marker({
 					map: map,
-					title: name,
-					position: loc
+					position: new google.maps.LatLng(lat, lng),
+					icon: name + ".png"
 				});
 
 				google.maps.event.addListener(marker, 'click', function() {
 					infowindow.close();
-					infowindow.setContent(name);
+					infowindow.setContent(name+" "+lat+" "+lng+" "+note);
 					infowindow.open(map, this);
 				});
-      }
+      		}
+
+      		function createMarker(name, lat, lng)
+			{
+				var marker = new google.maps.Marker({
+					map: map,
+					position: new google.maps.LatLng(lat, lng)
+				});
+
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.close();
+					infowindow.setContent(name+" "+lat+" "+lng);
+					infowindow.open(map, this);
+				});
+      		}
+
 		</script>
 	</head>
 	
