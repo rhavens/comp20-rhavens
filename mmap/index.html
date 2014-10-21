@@ -67,8 +67,9 @@
 				
 				// Getting data from the server
 				request = new XMLHttpRequest();
-				request.open("post", "http://chickenofthesea.herokuapp.com/sendLocation","false");
+				request.open("post", "http://chickenofthesea.herokuapp.com/sendLocation","true");
 				request.onreadystatechange = dataReady;
+				request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				request.send("login=Rolly&lat="+myLat+"&lng="+myLng);
 			}
 
