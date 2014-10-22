@@ -15,10 +15,8 @@ body {
 	height: 100%;
 }
 
-#modal_window {
-	width: 100px;
-	height: 100px;
-	padding-left: 50px;
-	padding-top: 50px;
-	position: absolute;
+#fixed_window {
+	position: fixed;
+	top: 30px;
+	right: 5px;
 }

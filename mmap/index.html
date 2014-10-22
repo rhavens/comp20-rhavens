@@ -91,7 +91,7 @@
 						sorted.push(k);
 					}
 					sorted.sort();
-					var docwindow = document.getElementById("modal_window");
+					var docwindow = document.getElementById("fixed_window");
 					for (i = 0; i < sorted.length; i ++) {
 						docwindow.innerHTML = docwindow.innerHTML + "<p>" + peopledistances[sorted[i]] + " <- -> me: " + sorted[i] + "</p>";
 					}
@@ -165,6 +165,6 @@
 	
 	<body onload="init()">
 		<div id="map_canvas"></div>
-		<div id="modal_window"></div>
+		<div id="fixed_window"></div>
 	</body>
 </html>
