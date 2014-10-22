@@ -87,9 +87,9 @@
 					}
 					var sorted = [];
 					for (k in peopledistances) {
-						sorted.push(parseFloat(k));
+						sorted.push(k);
 					}
-					sorted.sort();
+					sorted.sort(function (a, b) { return a - b; });
 					var docwindow = document.getElementById("fixed_window");
 					for (i = 0; i < sorted.length; i ++) {
 						docwindow.innerHTML = docwindow.innerHTML + "<p>" + peopledistances[sorted[i]] + " <- -> me: " + sorted[i] + "miles</p>";
