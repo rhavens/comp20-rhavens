@@ -50,8 +50,7 @@
 				
 				// Update map and go there...
 				map.panTo(me);
-	
-				// Create a marker
+					// Create a marker
 				marker = new google.maps.Marker({
 					position: me,
 					title: "Here I Am!",
@@ -93,7 +92,7 @@
 					sorted.sort();
 					var docwindow = document.getElementById("fixed_window");
 					for (i = 0; i < sorted.length; i ++) {
-						docwindow.innerHTML = docwindow.innerHTML + "<p>" + peopledistances[sorted[i]] + " <- -> me: " + sorted[i] + "</p>";
+						docwindow.innerHTML = docwindow.innerHTML + "<p>" + peopledistances[sorted[i]] + " <- -> me: " + sorted[i] + "miles</p>";
 					}
 				}
 			}
