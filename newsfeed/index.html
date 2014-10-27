@@ -8,6 +8,7 @@
 	<script>
 		$(document).ready(function() {
 			// Get newsfeed from localStorage
+			// localStorage key = Time value = Msg
 			for (var i = 0; i < localStorage.length; i++) {
 				displayMsg(localStorage.key(i), localStorage.getItem(localStorage.key(i)));
 			}
