@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>My News Feed</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			// Get newsfeed from localStorage
+			for (var i = 0; i < localStorage.length; i++) {
+				displayMsg(localStorage.key(i), localStorage.getItem(localStorage.key(i)));
+			}
+			// Submits msg field on enter press
+			$('#msg').keypress(function(k) {
+				if (k.which == 10 || k.which == 13) {
+					$('#msg').submit();
+				}
+			});
+			// Prepends new status and adds it to local storage
+			$('#msg').submit(function() {
+				var curTime = new Date().toUTCString();
+				displayMsg(curTime, $('#msg').val());
+	  			localStorage.setItem(curTime, $('#msg').val());
+	  			$('#msg').val('');
+	  		});
+	  		// Displays a status
+	  		function displayMsg(curTime, msg) {
+	  			$('#news').prepend('<p>'+curTime+' - '+msg+'</p>');
+	  		}
+	  	});
+	</script>
+</head>
+
+<body>
+	<h1>My News Feed</h1>
+	<h3>My news update: <input type="text" id="msg" name="msg" size="30" /></h3>
+	<div id="news">News...</div>
+</body>
+</html>
