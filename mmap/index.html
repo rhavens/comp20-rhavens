@@ -66,7 +66,7 @@
 				
 				// Getting data from the server
 				request = new XMLHttpRequest();
-				request.open("post", "localhost:3000/sendLocation","true");
+				request.open("post", "https://lit-peak-2795.herokuapp.com/sendLocation","true");
 				request.onreadystatechange = dataReady;
 				request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 				request.send("login=Rolly&lat="+myLat+"&lng="+myLng);
