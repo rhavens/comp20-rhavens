@@ -10,6 +10,7 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar-default">
+	<div class="site-wrapper">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 col-lg-offset-1">
@@ -36,7 +37,7 @@
 					<h2 class="blog-post-title" id="issues">Issues Found</h2>
 					<ul>
 						<li><h4>1. Cross-site Scripting (XSS)</h4></li>
-						<li><p>According to <a href="en.wikipedia.org/wiki/Cross-site_scripting">Wikipedia</a>, Cross-site scripting is a type of computer security vulnerability which enables attackers to inject client-side script into web pages which may then be viewed by other users.</p></li>
+						<li><p>According to <a href="http://en.wikipedia.org/wiki/Cross-site_scripting">Wikipedia</a>, Cross-site scripting is a type of computer security vulnerability which enables attackers to inject client-side script into web pages which may then be viewed by other users.</p></li>
 						<li><p>Special characters are not parsed from input, which makes submitting a malicious script as part of the login form as simple as placing &lt;script&gt; tags. Also important is that there are no contorls in place limiting script src location - I was able to insert jQuery into the page by using a CDN.</p></li>
 						<li><h4>2. No restrictions on input</h4></li>
 						<li><p>Using Burp Suite, I posted a number of test forms, some containing sanitary data and some containing bytecode from zipped file packages (essentially garbage input). I discovered that there was no restriction on the size of input - I could inject as large a string as I wanted for the login form, and it would still render on the page.</p></li>
@@ -53,8 +54,8 @@
 				</div>
 				<div class="blog-post">
 					<h2 class="blog-post-title" id="conclusion">Conclusion</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non euismod arcu. Vestibulum sed ipsum a erat vulputate commodo in ut mauris. Cras molestie mattis dolor quis finibus. Vivamus a nunc neque. Mauris maximus mollis tempor. Quisque sed efficitur ligula, ac lobortis diam. Duis vel nibh ante.</p>
-					<p>Morbi suscipit congue tristique. Nullam velit lacus, finibus non urna eget, varius pharetra enim. Suspendisse urna nisl, volutpat et sem eu, luctus interdum magna. Proin ac ex ac dolor suscipit ullamcorper consequat ut sem. Fusce sollicitudin rhoncus mauris vel commodo. Nulla ac aliquet ex. Nullam sagittis gravida leo, nec dignissim lectus sollicitudin vitae. Pellentesque vitae scelerisque ex. Aliquam faucibus finibus justo id cursus. Praesent sed felis libero. Vestibulum in dui sodales, lobortis neque hendrerit, ornare tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin in diam lacus. Sed lectus diam, finibus eget gravida id, blandit ac mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mi ligula, tincidunt quis congue sed, pulvinar vitae sapien.</p>
+					<p>As unlikely as an attack may seem, a smart server setup must be ready to handle any and all possible scenarios. Here we demonstrated four security vulnerabilities, all of which could have devastating consequences. Each of these vulnerabilities would require time and effort to fix, but it would be extremely worthwhile. An untrustworthy, insecure application not only does harm to its own image but also to the image of the entire tech industry itself.
+					<p>In conclusion, <span style="font-style:italic">never trust data from the client.</span> Take any and all preventative measures to secure your data, secure your clients' data, and maintain the integrity of your application.</p>
 				</div>
 			</div>
 			<div class="col-lg-2">
@@ -73,6 +74,9 @@
 					</div>
 				</nav>
 			</div>
+		</div>
+		<div style="height:100px;"></div>
+	</div>
 	</div>
 	<script>
 		$('body').scrollspy({ target: '.navbar-default' })
